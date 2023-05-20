@@ -1,6 +1,22 @@
-주제: 운영체제 이해
-
-용어: 버그바운티, file upload공격, 웹쉘
+---
+categories:
+  - Web Hacking
+tags:
+  - 파일 업로드
+  - 파일 업로드 공격
+  - 웹쉘
+  - 법
+  - 해킹
+  - 모의해킹
+  - 웹
+  - 웹해킹
+  - file upload
+  - web shell
+  - white list
+  - balck list
+  - hacking
+  - web hacking
+---
 
 
 ## 세상은 왜 나의 정의로움을 몰라줄까?
