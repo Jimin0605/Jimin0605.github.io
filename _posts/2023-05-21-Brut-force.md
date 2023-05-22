@@ -1,4 +1,3 @@
-<!--
 ---
 title: Brute Force Wirte up
 categories: 모의해킹
@@ -10,7 +9,7 @@ tag:
  - study
  - write up
 ---
--->
+
 # 개요
 저의 첫 Write up인 Brute Force에서는 웹 취약점 공부를 할 수 있는 DVWA(Damn Vulnerable Web Application)을 활용하여 해킹이 진행이 됬고, write up의 구성과 일부 내용은 Groot Security의 Brute Force wirte up을 예시를 참고하여 작성이 됬습니다.
 <br/>
