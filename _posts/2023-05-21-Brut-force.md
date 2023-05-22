@@ -33,13 +33,14 @@ tag:
 
 ## 취약점 정보
 
-|정보|설명|
-|---|---|
-|**이름**|사용자 인증 브루트포스(Bruteforce)|
-|**심각도**|높은|
-|**CVSS**|8.1|
-|**CVSS String**|CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H|
-|**위치**|http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login|
+| 정보        | 설명                                             |
+| ----------- | ------------------------------------------------ |
+| **이름**    | 사용자 인증 브루트포스(Bruteforce)                |
+| **심각도**  | 높은                                             |
+| **CVSS**    | 8.1                                              |
+| **CVSS String** | CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H    |
+| **위치**    | [http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login](http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login) |
+
 
 # 1. 취약점 설명
 ## Brute Force란.
@@ -156,4 +157,4 @@ username: admin'-- -
 
 ## 레퍼런스
 - **grootsecurity** - DVWA 브루트포스에 대한 writeup 예시:
-https://security.grootboan.com/follow-along/undefined/0-dvwa/reference-writeup
+[https://security.grootboan.com/follow-along/undefined/0-dvwa/reference-writeup](https://security.grootboan.com/follow-along/undefined/0-dvwa/reference-writeup)
