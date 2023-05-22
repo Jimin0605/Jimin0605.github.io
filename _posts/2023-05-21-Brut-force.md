@@ -13,10 +13,16 @@ tag:
 # 개요
 저의 첫 Write up인 Brute Force에서는 웹 취약점 공부를 할 수 있는 DVWA(Damn Vulnerable Web Application)을 활용하여 해킹이 진행이 됬고, write up의 구성과 일부 내용은 Groot Security의 Brute Force wirte up을 예시를 참고하여 작성이 됬습니다.
 <br/>
+<br/>
 1. **취약점 설명/공부** - 브루트포스 공격에 대한 연구
 2. **개념증명 실습** - 브루트포스 공격에 대한 연구
 3. **대응 방안 공부** - Burpsuite, Hydra 등의 툴을 이용한 브루트 포스 공격
 4. **툴 제작** - 자체 제작한 파이썬 툴을 이용한 브루트포스 공격
+<br/>
+<br/>
+<br/>
+# 1. 취약점 설명
+
 
 |정보|설명|
 |---|---|
