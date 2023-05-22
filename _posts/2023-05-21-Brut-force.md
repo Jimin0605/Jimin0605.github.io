@@ -24,7 +24,8 @@ tag:
 <br/>
 <br/>
 # 1. 취약점 설명
-Brute Force는 자료구조의 Brut Force와 해킹에서의 Brute Force 2가지의미로 사용이 된다. 그렇다고 해서 서로 완전히 다른 개념은 아니다. 자료구조에서는 문제를 해결하기위해 모든 경우의 수를 탐색하는 방식을 의미하고, 해킹에서는 비밀번호 크래킹 등에서 모든 가능한 조합을 시도하는 공격 방법을 말한다. 이 글에서는 해킹에서의 Brute Force를 다룰것이다.
+#### Brute Force는 자료구조의 Brut Force와 해킹에서의 Brute Force 2가지의미로 사용이 된다. 그렇다고 해서 서로 완전히 다른 개념은 아니다. 자료구조에서는 문제를 해결하기위해 모든 경우의 수를 탐색하는 방식을 의미하고, 해킹에서는 비밀번호 크래킹 등에서 모든 가능한 조합을 시도하는 공격 방법을 말한다. 이 글에서는 해킹에서의 Brute Force를 다룰것이다.
+
 
 # 2. 개념 증명
 
@@ -38,7 +39,7 @@ Brute Force는 자료구조의 Brut Force와 해킹에서의 Brute Force 2가지
 |**심각도**|높은|
 |**CVSS**|8.1|
 |**CVSS String**|CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H|
-|**위치**|http://localhost/vulnerabilities/brute|
+|**위치**|http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login|
 
 
 
