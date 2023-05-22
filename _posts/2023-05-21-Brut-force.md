@@ -1,6 +1,8 @@
 ---
 title: Brute Force Wirte up
-categories: 모의해킹
+categories: 
+ - 모의해킹
+ - GrootSecurity
 tag: 
  - DVWA
  - Brut Force
@@ -28,6 +30,16 @@ tag:
 <br/>
 <br/>
 <br/>
+
+## 취약점 정보
+|정보|설명|
+|---|---|
+|**이름**|사용자 인증 브루트포스(Bruteforce)|
+|**심각도**|높은|
+|**CVSS**|8.1|
+|**CVSS String**|CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H|
+|**위치**|http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login|
+
 # 1. 취약점 설명
 ## Brute Force란.
  Brute Force는 **자료구조의 Brut Force**와 **해킹에서의 Brute Force** 2가지의미로 사용이 된다. 그렇다고 해서 서로 완전히 다른 개념은 아니다. 자료구조에서는 문제를 해결하기위해 모든 경우의 수를 탐색하는 방식을 의미하고, 해킹에서는 비밀번호 크래킹 등에서 모든 가능한 조합을 시도하는 공격 방법을 말한다. 이 글에서는 해킹에서의 Brute Force를 다룰것이다.
@@ -76,10 +88,8 @@ if( isset( $_GET[ 'Login' ] ) ) {   // Login 파라미터에 인자가 들어가
 소스를 보면 login을 하는데에 Brut Force에 대한 시큐어 코딩이 안되있는것을 확인 할 수 있다. 따라서 Brut Force를 하기위해 Burp Suite에 Intuder기능을 사용해 공격을 진행해본 결과 1분 내에 관리자의 이름과 비밀번호를 알아냈다.
 
 그리고 Brut Force이외에도 쿼리를 넣을 때 password에는 md5로 해쉬화 하지만 username에는 별 다른 필터링이 없이 그대로 넣어지는 것을 봐서 SQL Injection 또한 공격이 가능하다는 것을 확인 할 수 있다. 
-
-SQL Injection payload
-admin' or '1'='1
-
+<br/>
+<br/>
 # 2. 개념 증명
 ## Brut Force
 개념 증명을 위해 해당 url에 Burpsuite의 내장되어 있는 Intruder기능을 사용해 공격을 시도 했고, 사용자의 username을 알고 있다고 가정을 하고 진행을 하겠다.
@@ -140,13 +150,6 @@ username: admin'-- -
 
 # 4. 툴 제작
 
-|정보|설명|
-|---|---|
-|**이름**|사용자 인증 브루트포스(Bruteforce)|
-|**심각도**|높은|
-|**CVSS**|8.1|
-|**CVSS String**|CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H|
-|**위치**|http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login|
 
 
 
