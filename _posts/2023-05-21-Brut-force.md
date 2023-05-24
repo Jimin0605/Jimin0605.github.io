@@ -29,8 +29,6 @@ tag:
 [5. 레퍼런스](#레퍼런스)
 <br/>
 <br/>
-<br/>
-
 ## 취약점 정보
 
 | 정보        | 설명                                             |
@@ -40,7 +38,8 @@ tag:
 | **CVSS**    | 8.1                                              |
 | **CVSS String** | CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H    |
 | **위치**    | [http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login](http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login) |
-
+<br/>
+<br/>
 
 # 1. 취약점 설명
 ## Brute Force란.
