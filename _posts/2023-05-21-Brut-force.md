@@ -151,10 +151,23 @@ username: admin'-- -
 # 3. 대응방안
 대응방안으로는 암호를 생성할 때 강력한 암호를 생성하기, 일정 횟수 이상의 로그인 실패시 계정을 일시적으로 제한을 하는것, CAPTHA, 2차인증, IP차단 등이 있다.
 
-CAPTHA는 
+**CAPTCHA**는 현재 컴퓨터 사용자가 사람인지 로봇인지를 구분하기 위해 만들어진 기술이다. 따라서 사용하는 용도로는 흔히 계정을 생성하거나 게시물을 등록할 때 사람인지 봇인지 구분해 해킹을 방지하기 위해 사용되기도 하지만, AI를 학습시키기 위한 데이터로 활용되기도 한다.
+CAPTCHA의 종류로는 **텍스트, 오디오, 이미지, 슬라이드 등**의 종류들이 있다.
+![image](/assets/images/Write_up/Brut_Force/image_captcha.png)
+**[텍스트 CAPTCHA]**
+<br/>
+<br/>
 
+![image](/assets/images/Write_up/Brut_Force/image_captcha1.png)
+**[이미지 CAPTCHA]**
+<br/>
+<br/>
+
+그러나 이런 CAPTCHA와 같은 대응방안에 대해서는 한계점이 존재한다. 검증과정중 사람이 직접 개입을 해 해독을 하면 검증을 통과할수밖에 없고, 현재 기술이 발달하면서 텍스트CAPTCHA는 기계들도 충분히 판독이 가능해졌다. 반면에 특정한 장애가 있는 사람들이나 어린이, 노인 등의 접근을 방해하는 역효과 까지 일어난다.
 # 4. 툴 제작
 [https://github.com/Jimin0605/DVWA_tools/blob/main/tools/BrutForce_ver_1.1.py](https://github.com/Jimin0605/DVWA_tools/blob/main/tools/BrutForce_ver_1.1.py)
+
+**전체코드**
 ```python
 '''
 brut force 병렬처리 성공
@@ -239,6 +252,8 @@ if __name__ == '__main__':
             print("\n\nBruteforce SUCCESS!!")
             print("password is", result)
 ```
+
+
 처음 툴을 제작할 때 처음 완성이 됬던 github link에 있는 brut force ver 1을 실행을 했을 때 input을 했던 password 들이 처음에는 8개(core의 수를 8개로 설정해 두었음)로 나왔지만 이후로는 시간이 조금 흐른뒤 password input이 하나 나오고 이후로는 약 2초 간격으로 input이 하나씩 되는 것을 확인 할 수 있었다. 즉, medium난이도의 brut force에서 sleep(2)라는 http요청의 시간지연을 우회하기 위해 pyhton에서 제공하는 multiprocessing모듈에서 Pool을 이용해 병렬처리를 해주었지만 실패를 했다.
 
 실패의 원인을 분석해보았을 때 함수를 실행할 때에는 병렬 처리가 잘 되었지만 요청을 보내는 부분에서 문제가 있던것이었다. requests.get으로 요청을 보낼 때 아무리 요청을 8개를 보내도 처음 받은 요청으로 인해 2초씩 시간지연이 발생하기 때문이다. 원래라면 요청 8개를 보냈을 때 서로 독립적으로 응답을 받고 2초씩 시간 지연이 생기는 방식으로 되어야 하는데 각 코어의 요청이 독립적으로 요청을 보내고 있지 않기에 이런 문제가 발생한 것이었다.
