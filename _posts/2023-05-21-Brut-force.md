@@ -148,6 +148,25 @@ username: admin'-- -
 <br/>
 <br/>
 
+**+추가**
+
+brut force midium level에서는 
+```php
+if( isset( $_GET[ 'Login' ] ) ) {
+    // Sanitise username input
+    $user = $_GET[ 'username' ];
+    $user = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $user ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+
+    // Sanitise password input
+    $pass = $_GET[ 'password' ];
+    $pass = ((isset($GLOBALS["___mysqli_ston"]) && is_object($GLOBALS["___mysqli_ston"])) ? mysqli_real_escape_string($GLOBALS["___mysqli_ston"],  $pass ) : ((trigger_error("[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.", E_USER_ERROR)) ? "" : ""));
+    $pass = md5( $pass );
+
+    // Check the database
+    $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
+    $result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+```
+위의 코드와 같이 username은 mysqli_real_escape_string함수를 사용해 특수문자 필터링을 하고 password는 mysqli_real_excape_string과 더불어 md5의 암호화 까지 하고 있어 SQLInjection 에 대한 시큐어 코딩되어있다.
 # 3. 대응방안
 대응방안으로는 암호를 생성할 때 강력한 암호를 생성하기, 일정 횟수 이상의 로그인 실패시 계정을 일시적으로 제한을 하는것, CAPTHA, 2차인증, IP차단 등이 있다.
 
@@ -165,7 +184,9 @@ CAPTCHA의 종류로는 **텍스트, 오디오, 이미지, 슬라이드 등**의
 
 그러나 이런 CAPTCHA와 같은 대응방안에 대해서는 한계점이 존재한다. 검증과정중 사람이 직접 개입을 해 해독을 하면 검증을 통과할수밖에 없고, 현재 기술이 발달하면서 텍스트CAPTCHA는 기계들도 충분히 판독이 가능해졌다. 반면에 특정한 장애가 있는 사람들이나 어린이, 노인 등의 접근을 방해하는 역효과 까지 일어난다.
 
+**계정차단**은 한 계정에서 로그인 실패가 일정한 횟수 이상 일어날 시 계정을 일시적으로 잠그는 대응방안이다. **IP차단**도 마찬가지로 지속적인 로그인 실패가 일어날 시 IP가 차단이 되는 것이지만 차이점으로는 단순 계정차단은 하나의 계정에서 여러번의 실패가 일어나야지 계정이 차단하지만, IP차단의 경우는 다른 계정일 지라도 IP가 같을 경우 동일 IP에서 여러번의 실패가 발생되면 IP자체가 차단이 되는것이다.
 
+이 외에도 가장 중요한 대응 방안은 애초에 **비밀번호를 설정할 때 적절한 길이, 영어 대소문자, 특수문자 사용, 자신의 정보를 담지 않은 예측 불가능한 문자열사용, 여러 사이트에 동일한 비밀번호 재활용 을 하지 않는것** 등이 brut force를 하는데에 큰 영향을 미친다.
 # 4. 툴 제작
 툴 제작은 level low단계에서는 brut force에 대한 시큐어 코딩이 되있지 않으므로 넘어가고 level medium에서의 시간 지연 대응에 대한 우회하는 코드 작성을 목표로 하겠다.
 ```php
