@@ -255,7 +255,7 @@ if __name__ == '__main__':
     print(f"걸린시간: {end-start}sec.")
 
 ```
-처음 툴을 제작할 때 처음 완성이 됬던 github link에 있는 brut force ver 1을 실행을 했을 때 input을 했던 password 들이 처음에는 8개(core의 수를 8개로 설정해 두었음)로 나왔지만 이후로는 시간이 조금 흐른뒤 password input이 하나 나오고 이후로는 약 2초 간격으로 input이 하나씩 되는 것을 확인 할 수 있었다. 즉, medium난이도의 brut force에서 sleep(2)라는 http요청의 시간지연을 우회하기 위해 pyhton에서 제공하는 multiprocessing모듈에서 Pool을 이용해 병렬처리를 해주었지만 실패를 했다.
+처음 툴을 제작할 때 처음 완성이 됬던 github link에 있는 brut force ver 1을 실행을 했을 때 input password들이 약 2초간격으로 출력이 되는것을 확인 할 수 있다. 즉, medium난이도의 brut force에서 sleep(2)라는 http요청의 시간지연을 우회하기 위해 pyhton에서 제공하는 multiprocessing모듈에서 Pool을 이용해 병렬처리를 해주었지만 실패를 했다.
 
 실패의 원인을 분석해보았을 때 함수를 실행할 때에는 병렬 처리가 잘 되었지만 요청을 보내는 부분에서 문제가 있던것이었다. requests.get으로 요청을 보낼 때 아무리 요청을 8개를 보내도 처음 받은 요청으로 인해 2초씩 시간지연이 발생하기 때문이다. 원래라면 요청 8개를 보냈을 때 서로 독립적으로 응답을 받고 2초씩 시간 지연이 생기는 방식으로 되어야 하는데 각 코어의 요청이 독립적으로 요청을 보내고 있지 않기에 이런 문제가 발생한 것이었다.
 
