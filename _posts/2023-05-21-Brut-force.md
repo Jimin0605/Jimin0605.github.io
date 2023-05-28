@@ -87,7 +87,7 @@ if( isset( $_GET[ 'Login' ] ) ) {   // Login 파라미터에 인자가 들어가
 ```
 위 코드는 DVWA brut force low level의 php소스이다.
 <br/>
-소스를 보면 login을 하는데에 Brut Force에 대한 시큐어 코딩이 안되있는것을 확인 할 수 있다. 따라서 Brut Force를 하기위해 Burp Suite에 Intuder기능을 사용해 공격을 진행해본 결과 1분 내에 관리자의 이름과 비밀번호를 알아냈다.
+소스를 보면 login을 하는데에 Brut Force에 대한 시큐어 코딩이 안돼있는것을 확인 할 수 있다. 따라서 Brut Force를 하기위해 Burp Suite에 Intuder기능을 사용해 공격을 진행해본 결과 1분 내에 관리자의 이름과 비밀번호를 알아냈다.
 
 그리고 Brut Force이외에도 쿼리를 넣을 때 password에는 md5로 해쉬화 하지만 username에는 별 다른 필터링이 없이 그대로 넣어지는 것을 봐서 SQL Injection 또한 공격이 가능하다는 것을 확인 할 수 있다. 
 <br/>
