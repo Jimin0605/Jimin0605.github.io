@@ -25,10 +25,11 @@ tag:
 | 정보        | 설명                                             |
 | ----------- | ------------------------------------------------ |
 | **이름**    | 사용자 인증 브루트포스(Bruteforce)                |
-| **심각도**  | 높은                                             |
+| **심각도**  | 높은                                            |
 | **CVSS**    | 10.0                                            |
 | **CVSS String** | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H    |
 | **위치**    | [http://localhost/vulnerabilities/exec/](http://localhost/vulnerabilities/exec/) |
+
 <br/>
 <br/>
 
