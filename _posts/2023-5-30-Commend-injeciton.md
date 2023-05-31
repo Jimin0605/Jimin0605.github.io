@@ -4,8 +4,8 @@ categories:
  - 모의해킹
 tag: 
  - DVWA
- - Brut Force
- - SQL Injection
+ - command inejction
+ - 커맨드 인젝션
  - burp suite
  - 브루트포스
  - 모의해킹
