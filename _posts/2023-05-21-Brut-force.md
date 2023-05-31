@@ -2,7 +2,6 @@
 title: Brute Force Wirte up
 categories: 
  - 모의해킹
- - GrootSecurity
 tag: 
  - DVWA
  - Brut Force
