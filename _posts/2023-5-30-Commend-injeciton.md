@@ -48,9 +48,12 @@ tag:
 |**$()**|**명령어 치환** `$()`안에 들어있는 명령어를 실행한 결과로 치환 됩니다. 이 문자는 위와 다르게 중복 사용이 가능합니다. (`echo $(echo $(echo theori))`)|<code>$ echo $(echo theori)theori</code>|
 |**&&**|**명령어 연속 실행**
 
+
+######by. Dreamhack
 <br>
 <br>
 ## DVWA취약점.
+
 ```php
 <?php
 
