@@ -86,11 +86,10 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 
 ```mermaid
 graph LR
-    1-->2
-    1-->5
-    2-->2
-    3-->2
-    5-->3
+    A[Hard edge] -->B(Round edge)
+    B --> C{Decision}
+    C --> |one| D[Result one]
+    C --> |Two| E[Result two]
 ```
 
 # 레퍼런스
