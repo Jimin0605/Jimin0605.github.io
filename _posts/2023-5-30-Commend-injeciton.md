@@ -49,7 +49,7 @@ tag:
 |**&&**|**명령어 연속 실행**
 
 
-###### by. Dreamhack
+#### by. Dreamhack
 <br>
 <br>
 ## DVWA취약점.
@@ -83,6 +83,15 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 # 2. 개념 증명
 
 # 3. 대응방안
+
+```mermaid
+graph LR
+    1-->2
+    1-->5
+    2-->2
+    3-->2
+    5-->3
+```
 
 # 레퍼런스
 - Theori.DreamHack-command injection에 대한 설명: [https://learn.dreamhack.io/187#4](https://learn.dreamhack.io/187#4)
