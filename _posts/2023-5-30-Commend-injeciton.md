@@ -52,7 +52,7 @@ tag:
 |**\|**|**파이프** 앞 명령어의 결과가 뒷 명령어의 입력으로 들어갑니다.|<code>echo id \| /bin/sh uid=1001(theori) gid=1001(theori) groups=1001(theori)</code>|
 
 
-#### by. Dreamhack
+##### by. Dreamhack
 <br>
 <br>
 ## DVWA취약점.
