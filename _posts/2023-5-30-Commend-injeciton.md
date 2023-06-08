@@ -47,9 +47,9 @@ tag:
 |**\`\`**|**명령어 치환** <code>``</code> 안에 들어있는 명령어를 실행한 결과로 치환됩니다.|  <code>$ echo \`echo theori` theori</code>|
 |**$()**|**명령어 치환** `$()`안에 들어있는 명령어를 실행한 결과로 치환 됩니다. 이 문자는 위와 다르게 중복 사용이 가능합니다. (`echo $(echo $(echo theori))`)|<code>$ echo $(echo theori)theori</code>|
 |**&&**|**명령어 연속 실행** 한 줄에 여러 명령어를 사용하고 싶을 때 사용합니다. 앞 명령어에서 에러가 발생하지 않아야 뒷 명령어를 실행합니다. (Logical And)|<code>$ echo hello && echo theori hello theori</code>
-|**\|\|**|**명령어 연속 실행** 한 줄에 여러 명령어를 사용하고 싶을 때 사용합니다. 앞 명령어에서 에러가 발생해야 뒷 명령어를 실행합니다. (Logical Or)|<code>$ cat / \|\| echo theori cat: /: Is a directory theori</code>|
+|**\|\|**|**명령어 연속 실행** 한 줄에 여러 명령어를 사용하고 싶을 때 사용합니다. 앞 명령어에서 에러가 발생해야 뒷 명령어를 실행합니다. (Logical Or)|<code>$ cat / || echo theori cat: /: Is a directory theori</code>|
 |**;**|**명령어 구분자** 한 줄에 여러 명령어를 사용하고 싶을 때 사용합니다. `;`은 단순히 명령어를 구분하기 위해 사용하며, 앞 명령어의 에러 유무와 관계없이 뒷 명령어를 실행합니다.|<code>$ echo hello ; echo theori hello theori</code>
-|**\|**|**파이프** 앞 명령어의 결과가 뒷 명령어의 입력으로 들어갑니다.|<code>echo id \| /bin/sh uid=1001(theori) gid=1001(theori) groups=1001(theori)</code>|
+|**\|**|**파이프** 앞 명령어의 결과가 뒷 명령어의 입력으로 들어갑니다.|<code>echo id | /bin/sh uid=1001(theori) gid=1001(theori) groups=1001(theori)</code>|
 
 
 ###### by. Dreamhack
