@@ -166,6 +166,7 @@ if( isset( $_GET[ 'Login' ] ) ) {
     $result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
 ```
 위의 코드와 같이 username은 mysqli_real_escape_string함수를 사용해 특수문자 필터링을 하고 password는 mysqli_real_excape_string과 더불어 md5의 암호화 까지 하고 있어 SQLInjection 에 대한 시큐어 코딩되어있다.
+
 # 3. 대응방안
 대응방안으로는 암호를 생성할 때 강력한 암호를 생성하기, 일정 횟수 이상의 로그인 실패시 계정을 일시적으로 제한을 하는것, CAPTHA, 2차인증, IP차단 등이 있다.
 

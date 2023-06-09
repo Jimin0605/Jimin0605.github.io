@@ -81,7 +81,9 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 ?>
 ```
 이 php코드는 low level의 코드이다. 사용자에게 command를 입력받는 부분을 보면 필터링을 하지 않고있고, 그것을 그대로 불러와 shell_exec를 통해 명령어를 실행시키는 것을 확인할 수 있다. 따라서 BrutForce때와 마찬가지로 low level에서는 해당 취약점에 대한 별다른 시큐어코딩이 되어있지 않다는 것을 알 수 있다. 즉 메타문자를 사용하면 간단하게 커맨드를 injection할 수 있다. 
-
+<br>
+<br>
+ 
 ```php
 <?php
 
@@ -115,6 +117,8 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 ?>
 ```
 이 코드의 level은 medium이다. low와 달리 medium에서는 메타문자인 `&&`와 `;`를 필터링해 없애주는것을 확인할 수 있다. 그러나 모든 메타문자를 막지는 안았으므로 다른 문자를 사용하면 커맨드를 injection할 수 있을 것이다.
+<br>
+<br>
 
 ```php
 <?php
@@ -155,10 +159,58 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 
 ?>
 ```
-이 코드의 level은 high다. medium에서는 메타문자 `&&, ;`를 필터링을 해주었다면, 지금은 <code>&, ;, |, -, $, (, ), `, ||</code>로 모든 메타문자를 필터링 해주는것을 확인 할 수 있다. 하지만, 코드를 다시 확인해보면 파이프(|)뒤에 한칸이 띄어져 있는것을 알 수 있다. 개발자가 코딩을 할 때의 실수로인해 
+이 코드의 level은 high다. medium에서는 메타문자 `&&, ;`를 필터링을 해주었다면, 지금은 <code>&, ;, |, -, $, (, ), `, ||</code>로 모든 메타문자를 필터링 해주는것을 확인 할 수 있다. 하지만, 코드를 다시 확인해보면 파이프(|)뒤에 한칸이 띄어져 있는것을 알 수 있다. 개발자가 코딩을 할 때의 실수로인해 command injection에대한 취약점이 발생된것다.
+<br>
+<br>
+
+```php
+<?php
+
+if( isset( $_POST[ 'Submit' ]  ) ) {
+    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
+
+    // Get input
+    $target = $_REQUEST[ 'ip' ];
+    $target = stripslashes( $target );
+
+    // Split the IP into 4 octects
+    $octet = explode( ".", $target );
+
+    // Check IF each octet is an integer
+    if( ( is_numeric( $octet[0] ) ) && ( is_numeric( $octet[1] ) ) && ( is_numeric( $octet[2] ) ) && ( is_numeric( $octet[3] ) ) && ( sizeof( $octet ) == 4 ) ) {
+        // If all 4 octets are int's put the IP back together.
+        $target = $octet[0] . '.' . $octet[1] . '.' . $octet[2] . '.' . $octet[3];
+
+        // Determine OS and execute the ping command.
+        if( stristr( php_uname( 's' ), 'Windows NT' ) ) {
+            // Windows
+            $cmd = shell_exec( 'ping  ' . $target );
+        }
+        else {
+            // *nix
+            $cmd = shell_exec( 'ping  -c 4 ' . $target );
+        }
+
+        // Feedback for the end user
+        echo "<pre>{$cmd}</pre>";
+    }
+    else {
+        // Ops. Let the user name theres a mistake
+        echo '<pre>ERROR: You have entered an invalid IP.</pre>';
+    }
+}
+
+// Generate Anti-CSRF token
+generateSessionToken();
+
+?>
+```
+이 코드의 level은 impossible이다. 이 level의 코드는 다른 코드들과 달리 특정한 문자에 대한 필터링보다는 구조적인 필터를 하고있다. 먼저 이 command injection에 있는 이 입력은 `ping`명령어를 실행시키는 목적의 기능을 가지고있다. ping 다음 인자로는 ip인 `000.000.000.000`와 같이 3개의 점을 기준으로 숫자열들이 이루어져야 한다. 그래서 이 코드에는 ip를입력받고 `.`을 기준으로 4개의 문자열을 octet이라는 배열에 넣은뒤, 각 배열의 문자열이 숫자인지 그리고 `.`을 기준으로 나눈 영역의 수가 4개인지를 체크한뒤 명령어를 실행한다. 
 
 
 # 2. 개념 증명
+개념증명은 medium과 high만 진행했다. 
 
 # 3. 대응방안
 
