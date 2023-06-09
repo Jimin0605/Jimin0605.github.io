@@ -80,7 +80,82 @@ if( isset( $_POST[ 'Submit' ]  ) ) {
 
 ?>
 ```
-이 php코드는 low level의 코드이다. 사용자에게 command를 입력받는 부분을 보면 필터링을 하지 않고있고, 그것을 그대로 불러와 shell_exec를 통해 명령어를 실행시키는 것을 확인할 수 있다. 따라서 BrutForce때와 마찬가지로 low level에서는 해당 취약점에 대한 별다른 시큐어코딩이 되어있지 않다는 것을 알 수 있다. 
+이 php코드는 low level의 코드이다. 사용자에게 command를 입력받는 부분을 보면 필터링을 하지 않고있고, 그것을 그대로 불러와 shell_exec를 통해 명령어를 실행시키는 것을 확인할 수 있다. 따라서 BrutForce때와 마찬가지로 low level에서는 해당 취약점에 대한 별다른 시큐어코딩이 되어있지 않다는 것을 알 수 있다. 즉 메타문자를 사용하면 간단하게 커맨드를 injection할 수 있다. 
+
+```php
+<?php
+
+if( isset( $_POST[ 'Submit' ]  ) ) {
+    // Get input
+    $target = $_REQUEST[ 'ip' ];
+
+    // Set blacklist
+    $substitutions = array(
+        '&&' => '',
+        ';'  => '',
+    );
+
+    // Remove any of the charactars in the array (blacklist).
+    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );
+
+    // Determine OS and execute the ping command.
+    if( stristr( php_uname( 's' ), 'Windows NT' ) ) {
+        // Windows
+        $cmd = shell_exec( 'ping  ' . $target );
+    }
+    else {
+        // *nix
+        $cmd = shell_exec( 'ping  -c 4 ' . $target );
+    }
+
+    // Feedback for the end user
+    echo "<pre>{$cmd}</pre>";
+}
+
+?>
+```
+이 코드의 level은 medium이다. low와 달리 medium에서는 메타문자인 `&&`와 `;`를 필터링해 없애주는것을 확인할 수 있다. 그러나 모든 메타문자를 막지는 안았으므로 다른 문자를 사용하면 커맨드를 injection할 수 있을 것이다.
+
+```php
+<?php
+
+if( isset( $_POST[ 'Submit' ]  ) ) {
+    // Get input
+    $target = trim($_REQUEST[ 'ip' ]);
+
+    // Set blacklist
+    $substitutions = array(
+        '&'  => '',
+        ';'  => '',
+        '| ' => '',
+        '-'  => '',
+        '$'  => '',
+        '('  => '',
+        ')'  => '',
+        '`'  => '',
+        '||' => '',
+    );
+
+    // Remove any of the charactars in the array (blacklist).
+    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );
+
+    // Determine OS and execute the ping command.
+    if( stristr( php_uname( 's' ), 'Windows NT' ) ) {
+        // Windows
+        $cmd = shell_exec( 'ping  ' . $target );
+    }
+    else {
+        // *nix
+        $cmd = shell_exec( 'ping  -c 4 ' . $target );
+    }
+
+    // Feedback for the end user
+    echo "<pre>{$cmd}</pre>";
+}
+
+?>
+```
+이 코드의 level은 high다. medium에서는 메타문자 `&&, ;`를 필터링을 해주었다면, 지금은 <code>&, ;, |, -, $, (, ), `, ||</code>로 모든 메타문자를 필터링 해주는것을 확인 할 수 있다. 하지만, 코드를 다시 확인해보면 파이프(|)뒤에 한칸이 띄어져 있는것을 알 수 있다. 개발자가 코딩을 할 때의 실수로인해 
 
 
 # 2. 개념 증명
