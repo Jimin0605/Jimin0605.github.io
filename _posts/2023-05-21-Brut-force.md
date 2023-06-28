@@ -1,5 +1,5 @@
 ---
-title: Brute Force Wirte up
+title: Brute Force Write up
 categories: 
  - 모의해킹
 tag: 

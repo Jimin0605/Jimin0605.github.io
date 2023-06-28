@@ -1,0 +1,58 @@
+---
+title: SQL Injection Write up
+categories: 
+- 모의해킹
+tag:
+- DVWA
+- SQL Injection
+- 모의해킹
+- Grootsecurity
+- study
+- write up
+---
+# 개요
+
+<br/>
+## 목차
+[1. **취약점 설명/공부** - 브루트포스 공격에 대한 연구](#1-취약점-설명)<br/>
+[2. **개념증명 실습** - 브루트포스 공격에 대한 연구](#2-개념-증명)
+<br/>
+[3. **대응 방안 공부** - Burpsuite, Hydra 등의 툴을 이용한 브루트 포스 공격](#3-대응방안)
+<br/>
+[4. **툴 제작** - 자체 제작한 파이썬 툴을 이용한 브루트포스 공격](#4-툴-제작)
+<br/>
+[5. 레퍼런스](#레퍼런스)
+<br/>
+<br/>
+## 취약점 정보
+
+| 정보        | 설명                                             |
+| ----------- | ------------------------------------------------ |
+| **이름**    | 사용자 인증 브루트포스(Bruteforce)                |
+| **심각도**  | 심각                                         |
+| **CVSS**    | 10.0                                              |
+| **CVSS String** | CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H    |
+| **위치**    | [http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login](http://localhost/vulnerabilities/brute/?username=admin&password=password&Login=Login) |
+
+<br/>
+<br/>
+
+# 1. 취약점 설명
+## SQL Injection이란.
+
+## DVWA취약점.
+```php
+```
+
+# 2. 개념 증명
+## SQL Injection
+
+# 3. 대응방안
+
+# 4. 툴 제작
+```python
+```
+
+## 레퍼런스
+
+
