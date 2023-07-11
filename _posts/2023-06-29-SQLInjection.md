@@ -40,6 +40,15 @@ tag:
 
 # 1. 취약점 설명
 ## SQL Injection이란.
+
+```html
+<div class="mermaid">
+    flowchart LR
+        A --> B
+</div>
+```
+
+
 웹 개발을 할 때 데이터베이스에 여러 정보들을 저장하고 관리하기 위해 DBMS(DataBase Management System)을 사용한다. 이런 DBMS의 데이터들을 정의, 조작 등을 하기위한 언어인 SQL(Structured Query Language)이 사용된다. 
 
 사용자는 웹 어플리케이션의 입력 폼에 문자를 입력하면 `SELECT * FROM Users WHERE username = '' AND password = ''`와 같은 SQL쿼리문에 삽입이 된후 명령어가 실행이 된다. 이때 공격자는 삽입을 할 문자를 `' OR 1=1 -- -`와 같이 입력을 하면 실행할 쿼리문이 `SELECT * FROM Users WHERE username = '' OR 1=1-- -' AND password = ''` 이와 같이 실행이돼 usernmae과 password가 일치하지 않더라도 더 나아가 username조차 입력하지 않더라도 Users에 있는 모든 정보들을 가져올 수 있도록 SQL구문을 주입하는것이 SQL Injection이다.
