@@ -41,11 +41,12 @@ tag:
 # 1. 취약점 설명
 ## SQL Injection이란.
 
-```html
-<div class="mermaid">
-    flowchart LR
-        A --> B
-</div>
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
 ```
 
 
