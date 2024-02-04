@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://jimin0605.github.io/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/archives/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/about/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/ctf1-writeup/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/miniCTF/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/CVE-2021-44228/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/%EB%AF%B8%EB%8B%88%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9-%EB%8C%80%ED%9A%8C/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/Tutorial/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/security-policy/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/CFG/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/Webshell/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/AWS-securiy/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B3%84%ED%9A%8D/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/page2/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/whitehatschool/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%99%94%EC%9D%B4%ED%8A%B8%ED%96%87%EC%8A%A4%EC%BF%A8/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/prebob/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%9B%B9%ED%95%B4%ED%82%B9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/dvwa/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/grootsecurity/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/study/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/wargame/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/webhacking/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/redraccoon/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/rcity/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/wargame/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/dreamhack/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/whitehatschool/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/task/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/%EB%8C%80%ED%9A%8C/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/categories/%EC%8A%A4%ED%94%BC%EC%96%B4%ED%94%BC%EC%8B%B1/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/ai%EB%B3%B4%EC%95%88/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/android/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/app/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/ast/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/aws/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/aws%EA%B4%80%EB%A6%AC/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/balck-list/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/brut-force/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/burp-suite/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/c/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/client-side-vulnerability/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/command-inejction/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/crypto/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/ctf/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/cve/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/cve-2021-44228/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/dreamhack/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/file-upload/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/fileless-attack/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/hacking/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/log4j/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/log4shell/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/php/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/poc/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/programming/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/redraccoon/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/rot128/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/session/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/spear-phishing/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/sql-injection/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/sqlinjection/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/vulnhub/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/web-hacking/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/web-shell/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/webshell/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/white-list/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/write-up/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/xss/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EB%93%9C%EB%A6%BC%ED%95%B5/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EB%A0%88%EB%93%9C%EB%9D%BC%EC%BF%A4/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EB%B2%95/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EB%B8%8C%EB%A3%A8%ED%8A%B8%ED%8F%AC%EC%8A%A4/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%8A%A4%ED%94%BC%EC%96%B4%ED%94%BC%EC%8B%B1/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%9B%8C%EA%B2%8C%EC%9E%84/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%9B%B9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%9B%B9%EC%89%98/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%A7%91%EB%8B%A8%EC%A7%80%EC%84%B1/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%B5%9C%EC%8B%A0%EB%B3%B4%EC%95%88%EB%8F%99%ED%96%A5/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%9D%B8%EC%A0%9D%EC%85%98/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%82%AC%EC%9D%B4%EB%93%9C-%EC%B7%A8%EC%95%BD%EC%A0%90/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C-%EA%B3%B5%EA%B2%A9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%8C%8C%EC%9D%BC%EB%A6%AC%EC%8A%A4-%EA%B3%B5%EA%B2%A9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EA%B3%84%ED%9A%8D/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%95%B4%ED%82%B9/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%95%B4%ED%82%B9%EB%8C%80%ED%9A%8C/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%97%88%EB%8B%88%ED%8C%9F/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/tags/%ED%99%94%EC%9D%B4%ED%8A%B8%ED%96%87%EC%8A%A4%EC%BF%A8w/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/programming-task/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/app-hacking/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/%EC%B5%9C%EC%8B%A0%EB%B3%B4%EC%95%88%EB%8F%99%ED%96%A5%EA%B3%BC%EC%A0%9C/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/rot128/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/session/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/fileless-attack/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/SQLInjection/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/Commend-injeciton/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/Brut-force/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://jimin0605.github.io/posts/File-Upload%EA%B3%B5%EA%B2%A9-(Web-Shell)/</loc>
+  <lastmod>2024-02-04T09:42:56+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
