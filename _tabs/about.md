@@ -4,5 +4,11 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+* **2022** 멋쟁이사자처럼 10기 수료
+* **2022** 동북권 데이터활용 대회 장려상
+* **2022** 교내 모의해킹실습교육 최우수상
+
+
+* **2023** 국정원 주관 윤리적해커양성 수료
+* **2023** 교내 모의해킹실습교육 우수상
+* **현재** preBoB 화이트햇스쿨 1기
