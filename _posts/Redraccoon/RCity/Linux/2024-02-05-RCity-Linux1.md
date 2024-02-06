@@ -7,6 +7,10 @@ tag:
 - ctf
 - 워게임
 - 레드라쿤
+- linux
+- find
+- grep
+- chmod
 ---
 
 # 개요
