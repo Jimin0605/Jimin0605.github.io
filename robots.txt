@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jimin0605.github.io/sitemap.xml
+Sitemap: https://jimin0605.github.io/sitemap2.xml
